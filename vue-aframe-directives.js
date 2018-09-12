@@ -42,6 +42,14 @@ const plugin = {
       if (value === null || value === undefined) {
         el.removeAttribute(attr);
       }
+      else if (attr === 'depth') {
+        if (value === 0) {
+          el.setAttribute(attr, 0.001);
+        }
+        else {
+          el.setAttribute(attr, value);
+        }
+      }
       else if (attr === 'position' || attr === 'scale') {
         if (typeof value === 'object' && !Array.isArray(value)) {
           Object.keys(value).forEach((key) => {
